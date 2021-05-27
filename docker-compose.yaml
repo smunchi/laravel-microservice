@@ -4,15 +4,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - .:/app
     ports:
       - 8000:8000
     depends_on:
-      - admin_db
+      - admin_db1
 
-  admin_db:
+  admin_db1:
     image: mysql:5.7.22
     environment:
-      MYSQL_DATABASE: admin
+      MYSQL_DATABASE: admin1
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
